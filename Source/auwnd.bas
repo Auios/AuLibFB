@@ -1,5 +1,5 @@
 'Window helper using FBGFX library by Auios
-
+#include "crt.bi"
 #include "auwnd.bi"
 
 #define fbc -lib -x ../lib/libauwnd.a
@@ -8,12 +8,13 @@ namespace Auios
     
     sub AuWndDump(thisWnd as AuWnd)
         with thisWnd
-            print .title
-            print .w
-            print .h
-            print .depth
-            print .pages
-            print .flags
+            printf(!"Title:  %s\n",.title)
+            printf(!"isInit: %d\n",.isInit)
+            printf(!"Width:  %d\n",.w)
+            printf(!"Height: %d\n",.h)
+            printf(!"Depth:  %d\n",.depth)
+            printf(!"Pages:  %d\n",.pages)
+            printf(!"Flags:  %d\n",.flags)
         end with
     end sub
     
@@ -21,6 +22,7 @@ namespace Auios
         dim as AuWnd thisWnd
         
         with thisWnd
+            .isInit = 1
             .w = w
             .h = h
             .title = title
@@ -59,6 +61,7 @@ namespace Auios
     
     sub AuWndDestroy(thisWnd as AuWnd)
         with thisWnd
+            .isInit = 0
             .w = 0
             .h = 0
             .depth = 0

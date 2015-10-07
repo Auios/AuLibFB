@@ -13,17 +13,14 @@ dim as AuWnd myWnd
 myWnd = AuWndInit(800,600,"MyWindowTitle")
 AuWndCreate(myWnd)
 
+cls
 print "Hello world!"
 print
 AuWndDump(myWnd)
 sleep
 
-AuWndClose(myWnd)
-
-print "Window closed"
-AuWndDump(myWnd)
-sleep
-
 AuWndDestroy(myWnd)
+
+cls
 AuWndDump(myWnd)
 sleep

@@ -10,6 +10,7 @@
     namespace Auios
         
         type AuWnd
+            public:
             as ubyte isInit
             
             as long w,h
