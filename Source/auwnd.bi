@@ -24,6 +24,7 @@
         declare function AuWndInit overload(w as long = 640,h as long = 480,title as zstring*48 = "Application",depth as long = 32,pages as long = 1,flags as long = 0) as AuWnd
         declare function AuWndInit overload(flag as byte,as zstring*48 = "Application") as AuWnd
         declare sub AuWndCreate(thisWnd as AuWnd)
+        declare sub AuWndClose(thisWnd as AuWnd)
         declare sub AuWndDestroy(thisWnd as AuWnd)
         
     end namespace

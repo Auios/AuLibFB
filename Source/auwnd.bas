@@ -53,6 +53,10 @@ namespace Auios
         end with
     end sub
     
+    sub AuWndClose(thisWnd as AuWnd)
+        screen 0
+    end sub
+    
     sub AuWndDestroy(thisWnd as AuWnd)
         with thisWnd
             .w = 0
@@ -60,6 +64,7 @@ namespace Auios
             .depth = 0
             .pages = 0
             .flags = 0
+            .title = "N/A"
         end with
         
         screen 0

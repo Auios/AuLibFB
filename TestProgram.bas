@@ -5,6 +5,7 @@
 #include "fbgfx.bi"
 #include "source/auwnd.bi"
 
+using fb
 using Auios
 
 dim as AuWnd myWnd
@@ -17,14 +18,12 @@ print
 AuWndDump(myWnd)
 sleep
 
-AuWndDestroy(myWnd)
+AuWndClose(myWnd)
 
-AuWndInit(1,"MySecondWindowTitle")
-AuWndCreate(myWnd)
-
-print "Hello world again!"
-print
+print "Window closed"
 AuWndDump(myWnd)
 sleep
 
 AuWndDestroy(myWnd)
+AuWndDump(myWnd)
+sleep
