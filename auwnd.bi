@@ -9,7 +9,7 @@
 
     namespace Auios
         
-        type AuWindow
+        type AuWnd
             as ubyte isInit
             
             as long w,h
@@ -20,10 +20,10 @@
             as zstring*48 title
         end type
         
-        declare sub AuWindowDump(thisWnd as AuWindow)
-        declare function AuWindowInit(_w as long = 640,_h as long = 480,_title as zstring*48 = "Application",_depth as long = 32,_pages as long = 1,_flags as long = 0) as AuWindow
-        declare sub AuWindowCreate(thisWnd as AuWindow)
-        declare sub AuWindowDestroy(thisWnd as AuWindow)
+        declare sub AuWndDump(thisWnd as AuWnd)
+        declare function AuWndInit(_w as long = 640,_h as long = 480,_title as zstring*48 = "Application",_depth as long = 32,_pages as long = 1,_flags as long = 0) as AuWnd
+        declare sub AuWndCreate(thisWnd as AuWnd)
+        declare sub AuWndDestroy(thisWnd as AuWnd)
         
     end namespace
 #endif

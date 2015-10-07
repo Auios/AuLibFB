@@ -1,6 +1,6 @@
 'TestProgram
 #include "fbgfx.bi"
-#include "auwindow.bas"
+#include "auwnd.bas"
 
 using Auios
 

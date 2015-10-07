@@ -1,10 +1,12 @@
-#include "auwindow.bi"
+'Window helper using FBGFX library by Auios
+
+#include "auwnd.bi"
 
 'define fbc -dll
 
 namespace Auios
     
-    sub AuWindowDump(thisWnd as AuWindow)
+    sub AuWndDump(thisWnd as AuWnd) export
         with thisWnd
             print .title
             print .w
@@ -15,8 +17,8 @@ namespace Auios
         end with
     end sub
     
-    function AuWindowInit(_w as long,_h as long,_title as zstring*48,_depth as long,_pages as long,_flags as long) as AuWindow export
-        dim as AuWindow thisWnd
+    function AuWndInit(_w as long,_h as long,_title as zstring*48,_depth as long,_pages as long,_flags as long) as AuWnd export
+        dim as AuWnd thisWnd
         
         with thisWnd
             .w = _w
@@ -30,14 +32,14 @@ namespace Auios
         return thisWnd
     end function
     
-    sub AuWindowCreate(thisWnd as AuWindow) export
+    sub AuWndCreate(thisWnd as AuWnd) export
         with thisWnd
             screenres(.w,.h,.depth,.pages,.flags)
             windowtitle .title
         end with
     end sub
     
-    sub AuWindowDestroy(thisWnd as AuWindow) export
+    sub AuWndDestroy(thisWnd as AuWnd) export
         with thisWnd
             .w = 0
             .h = 0
