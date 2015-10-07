@@ -1,15 +1,30 @@
 'TestProgram
+
+#define fbc -i lib\
+
 #include "fbgfx.bi"
-#include "auwnd.bas"
+#include "source/auwnd.bi"
 
 using Auios
 
-dim as AuWindow myWindow
+dim as AuWnd myWnd
 
-myWindow = AuWindowInit(800,600,"Hello")
-AuWindowCreate(myWindow)
+myWnd = AuWndInit(800,600,"MyWindowTitle")
+AuWndCreate(myWnd)
 
-AuWindowDump(myWindow)
+print "Hello world!"
+print
+AuWndDump(myWnd)
 sleep
 
-AuWindowDestroy(myWindow)
+AuWndDestroy(myWnd)
+
+AuWndInit(1,"MySecondWindowTitle")
+AuWndCreate(myWnd)
+
+print "Hello world again!"
+print
+AuWndDump(myWnd)
+sleep
+
+AuWndDestroy(myWnd)
