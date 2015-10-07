@@ -1,6 +1,6 @@
 'TestProgram
 
-#define fbc -i lib\
+#define fbc -p lib\
 
 #include "fbgfx.bi"
 #include "source/auwnd.bi"
