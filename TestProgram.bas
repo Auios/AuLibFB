@@ -1,26 +1,30 @@
 'TestProgram
 
-#define fbc -p lib\
+#define fbc -p .\lib\
 
+#include "crt.bi"
 #include "fbgfx.bi"
-#include "source/auwnd.bi"
+#include ".\inc\auios\auios.bi"
 
-using fb
 using Auios
 
-dim as AuWnd myWnd
+'Variables
+dim as AuWnd myWnd  = AuWndInit(800,600,"MyWindowTitle") 'Same as using myWnd = AuWndInit(2,"MyWindowTitle")
+dim as AuMs ms,msOld
 
-myWnd = AuWndInit(800,600,"MyWindowTitle")
+'Create the window
+'AuWndCreate(AuWndInit())
 AuWndCreate(myWnd)
 
-cls
-print "Hello world!"
-print
-AuWndDump(myWnd)
-sleep
+do
+    msOld = ms
+    ms = AuMsGet()
+    'if memcmp(@ms,@msOld,sizeof(ms)) <> 0 then AuMsDump(ms)
+    if AuMsCompare(ms,msOld) <> 0 then AuMsDump(ms)
+    
+    sleep 1,1
+loop until inkey = chr(27)
 
 AuWndDestroy(myWnd)
 
-cls
-AuWndDump(myWnd)
-sleep
+end 0

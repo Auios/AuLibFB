@@ -1,5 +1,5 @@
 'AuWnd.bas (Auios Window)
-#define fbc -lib -x ../../../lib/libauwnd.a -x ./libauwnd.a
+#define fbc -lib -x ../../../lib/libauwnd.a
 
 #include "crt.bi"
 #include "auwnd.bi"
@@ -8,13 +8,14 @@ namespace Auios
     'Dumps all the variables to the console for debug purposes
     sub AuWndDump(thisWnd as AuWnd)
         with thisWnd
-            printf(!"Title:  %s\n",.title)
-            printf(!"isInit: %d\n",.isInit)
-            printf(!"Width:  %d\n",.w)
-            printf(!"Height: %d\n",.h)
-            printf(!"Depth:  %d\n",.depth)
-            printf(!"Pages:  %d\n",.pages)
-            printf(!"Flags:  %d\n",.flags)
+            printf(!"==========\n") 'x10
+            printf(!"Title--: %s\n",.title)
+            printf(!"isInit-: %d\n",.isInit)
+            printf(!"Width--: %d\n",.w)
+            printf(!"Height-: %d\n",.h)
+            printf(!"Depth--: %d\n",.depth)
+            printf(!"Pages--: %d\n",.pages)
+            printf(!"Flags--: %d\n",.flags)
         end with
     end sub
     

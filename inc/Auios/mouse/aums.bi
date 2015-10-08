@@ -14,6 +14,8 @@
             as long clip
         end type
         
-        declare function AuGetMs() as AuMs
+        declare sub AuMsDump(thisMs as AuMs)
+        declare function AuMsGet() as AuMs
+        declare function AuMsCompare(thisMs1 as AuMs,thisMs2 as AuMs) as long
     end namespace
 #endif
