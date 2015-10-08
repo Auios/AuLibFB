@@ -1,2 +1,2 @@
-# FreeBasic-Auios-Library
+# AuLib
 By Auios
