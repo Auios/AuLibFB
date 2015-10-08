@@ -1,14 +1,13 @@
-'Window helper using FBGFX library by Auios
+'AuWnd.bi (Auios Window)
 
 #ifndef __AUIOS_WINDOW__
 #define __AUIOS_WINDOW__
-
+    
     #include "fbgfx.bi"
     
     #inclib "auwnd"
 
     namespace Auios
-        
         type AuWnd
             public:
             as ubyte isInit
@@ -27,6 +26,5 @@
         declare sub AuWndCreate(thisWnd as AuWnd)
         declare sub AuWndClose(thisWnd as AuWnd)
         declare sub AuWndDestroy(thisWnd as AuWnd)
-        
     end namespace
 #endif
