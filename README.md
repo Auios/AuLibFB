@@ -1,2 +1,12 @@
 # FreeBasic-Auios-Library
-Window helper using FreeBasic Graphics library by Auios
+By Auios
+Done:
+Window functions
+Mouse functions
+
+Todo:
+Math functions
+Vectors
+Fonts
+Image graphics
+    Rotation
