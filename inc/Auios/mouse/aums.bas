@@ -25,7 +25,7 @@ namespace Auios
         return thisMs
     end function
     
-    function AuMsCompare(thisMs1 as AuMs, thisMs2 as AuMs) as long
+    function AuMsCompare(thisMs1 as AuMs,thisMs2 as AuMs) as long
         return memcmp(@thisMs1,@thisMs2,sizeof(AuMs))
     end function
 end namespace
