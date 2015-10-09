@@ -1,4 +1,9 @@
 'TestProgram
+<<<<<<< HEAD:TestProgram.bas
+=======
+
+#define fbc -p .\lib\
+>>>>>>> parent of 2e822e0... Libs:TestProgram.bas
 
 #include "crt.bi"
 #include "fbgfx.bi"

@@ -7,7 +7,11 @@
 namespace Auios
     'Dumps all the variables to the console for debug purposes
 <<<<<<< HEAD
+<<<<<<< HEAD
     function AuWindowDump(thisWnd as AuWindow) as integer
+=======
+    sub AuWndDump(thisWnd as AuWnd)
+>>>>>>> parent of 2e822e0... Libs
 =======
     sub AuWndDump(thisWnd as AuWnd)
 >>>>>>> parent of 2e822e0... Libs
@@ -69,6 +73,9 @@ namespace Auios
 =======
     'Creates the window after initialization of AuWnd type
     sub AuWndCreate(thisWnd as AuWnd)
+<<<<<<< HEAD
+>>>>>>> parent of 2e822e0... Libs
+=======
 >>>>>>> parent of 2e822e0... Libs
         with thisWnd
             screenres(.w,.h,.depth,.pages,.flags)
@@ -78,7 +85,11 @@ namespace Auios
     
     'Closes the window. Does not destroy the variables
 <<<<<<< HEAD
+<<<<<<< HEAD
     function AuWindowClose(thisWnd as AuWindow) as integer
+=======
+    sub AuWndClose(thisWnd as AuWnd)
+>>>>>>> parent of 2e822e0... Libs
 =======
     sub AuWndClose(thisWnd as AuWnd)
 >>>>>>> parent of 2e822e0... Libs
@@ -91,6 +102,9 @@ namespace Auios
 =======
     'Close the window and destroys AuWnd variables.
     sub AuWndDestroy(thisWnd as AuWnd)
+<<<<<<< HEAD
+>>>>>>> parent of 2e822e0... Libs
+=======
 >>>>>>> parent of 2e822e0... Libs
         with thisWnd
             .isInit = 0

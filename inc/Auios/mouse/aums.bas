@@ -7,7 +7,11 @@
 namespace Auios
     'Dump all variables to the console for debugging
 <<<<<<< HEAD
+<<<<<<< HEAD
     function AuMsDump(thisMs as AuMouse) as integer
+=======
+    sub AuMsDump(thisMs as AuMs)
+>>>>>>> parent of 2e822e0... Libs
 =======
     sub AuMsDump(thisMs as AuMs)
 >>>>>>> parent of 2e822e0... Libs
@@ -35,6 +39,9 @@ namespace Auios
 =======
     function AuMsCompare(thisMs1 as AuMs,thisMs2 as AuMs) as long
         return memcmp(@thisMs1,@thisMs2,sizeof(AuMs))
+<<<<<<< HEAD
+>>>>>>> parent of 2e822e0... Libs
+=======
 >>>>>>> parent of 2e822e0... Libs
     end function
 end namespace
