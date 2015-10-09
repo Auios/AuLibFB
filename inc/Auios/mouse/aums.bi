@@ -14,8 +14,8 @@
             as long clip
         end type
         
-        declare sub AuMsDump(thisMs as AuMs)
+        declare function AuMsDump(thisMs as AuMs) as integer
         declare function AuMsGet() as AuMs
-        declare function AuMsCompare(thisMs1 as AuMs, thisMs2 as AuMs) as long
+        declare function AuMsCompare(thisMs1 as AuMs, thisMs2 as AuMs) as long 'Return 0 if they are the same
     end namespace
 #endif

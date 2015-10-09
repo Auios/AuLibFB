@@ -1,4 +1,4 @@
-'TestProgram
+'Test1
 
 #define fbc -p .\lib\
 

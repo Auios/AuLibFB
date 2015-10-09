@@ -6,7 +6,7 @@
 
 namespace Auios
     'Dumps all the variables to the console for debug purposes
-    sub AuWndDump(thisWnd as AuWnd)
+    function AuWndDump(thisWnd as AuWnd) as integer
         with thisWnd
             printf(!"==========\n") 'x10
             printf(!"Title--: %s\n",.title)
@@ -17,7 +17,8 @@ namespace Auios
             printf(!"Pages--: %d\n",.pages)
             printf(!"Flags--: %d\n",.flags)
         end with
-    end sub
+        return 0
+    end function
     
     'Call this first before creating the window. This initializes the variables
     function AuWndInit(w as long,h as long,title as zstring*48,depth as long,pages as long,flags as long) as AuWnd
@@ -32,7 +33,6 @@ namespace Auios
             .pages = pages
             .flags = flags
         end with
-        
         return thisWnd
     end function
     
@@ -60,20 +60,22 @@ namespace Auios
     end function
     
     'Creates the window after initialization of AuWnd type
-    sub AuWndCreate(thisWnd as AuWnd)
+    function AuWndCreate(thisWnd as AuWnd) as integer
         with thisWnd
             screenres(.w,.h,.depth,.pages,.flags)
             windowtitle .title
         end with
-    end sub
+        return 0
+    end function
     
     'Closes the window. Does not destroy the variables
-    sub AuWndClose(thisWnd as AuWnd)
+    function AuWndClose(thisWnd as AuWnd) as integer
         screen 0
-    end sub
+        return 0
+    end function
     
     'Close the window and destroys AuWnd variables.
-    sub AuWndDestroy(thisWnd as AuWnd)
+    function AuWndDestroy(thisWnd as AuWnd) as integer
         with thisWnd
             .isInit = 0
             .w = 0
@@ -85,5 +87,6 @@ namespace Auios
         end with
         
         screen 0
-    end sub
+        return 0
+    end function
 end namespace

@@ -6,7 +6,7 @@
 
 namespace Auios
     'Dump all variables to the console for debugging
-    sub AuMsDump(thisMs as AuMs)
+    function AuMsDump(thisMs as AuMs) as integer
         with thisMs
             printf(!"==========\n") 'x10
             printf(!"State---: %d\n",.state)
@@ -15,7 +15,8 @@ namespace Auios
             printf(!"Buttons-: %d\n",.buttons)
             printf(!"Clip----: %d\n",.clip)
         end with
-    end sub
+        return 0
+    end function
     
     function AuMsGet() as AuMs
         dim as AuMs thisMs
@@ -26,6 +27,6 @@ namespace Auios
     end function
     
     function AuMsCompare(thisMs1 as AuMs,thisMs2 as AuMs) as long
-        return memcmp(@thisMs1,@thisMs2,sizeof(AuMs))
+        return memcmp(@thisMs1,@thisMs2,sizeof(AuMs)) 'Return 0 if they are the same
     end function
 end namespace
