@@ -1,7 +1,5 @@
 'Test1
 
-#define fbc -p .\lib\
-
 #include "crt.bi"
 #include "fbgfx.bi"
 #include ".\inc\auios\auios.bi"
@@ -9,25 +7,25 @@
 using Auios
 
 'Variables
-dim shared as AuWnd myWnd 'Could use myWnd = AuWndInit(2,"MyWindowTitle")
-dim as AuMs ms,msOld
+dim shared as AuWindow myWnd 'Could use myWnd = AuWindowInit(2,"MyWindowTitle")
+dim as AuMouse ms,msOld
 
 'Declares
 declare sub keyboard()
 
 'Init
-myWnd = AuWndInit(800,600,"MyWindowTitle")
+myWnd = AuWindowInit(800,600,"MyWindowTitle")
 'Create the window
-'AuWndCreate(AuWndInit())
-AuWndCreate(myWnd)
+'AuWindowCreate(AuWindowInit())
+AuWindowCreate(myWnd)
 
 line(0,0)-(myWnd.w,myWnd.h),rgb(100,100,100),bf
 
 do
     msOld = ms
-    ms = AuMsGet()
-    'if memcmp(@ms,@msOld,sizeof(ms)) <> 0 then AuMsDump(ms)
-    if AuMsCompare(ms,msOld) <> 0 then AuMsDump(ms)
+    ms = AuMouseGet()
+    'if memcmp(@ms,@msOld,sizeof(ms)) <> 0 then AuMouseDump(ms)
+    if AuMouseCompare(ms,msOld) <> 0 then AuMouseDump(ms)
     
     keyboard()
     
@@ -38,7 +36,7 @@ do
     sleep 1,1
 loop until inkey = chr(27)
 
-AuWndDestroy(myWnd)
+AuWindowDestroy(myWnd)
 
 end 0
 

@@ -9,7 +9,7 @@ dim as AuWnd wnd = AuWndInit()
 
 AuWndCreate(wnd)
 
-print "Hello!"
+
 
 sleep
 

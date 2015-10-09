@@ -6,7 +6,7 @@
 
 namespace Auios
     'Dump all variables to the console for debugging
-    function AuMsDump(thisMs as AuMs) as integer
+    function AuMsDump(thisMs as AuMouse) as integer
         with thisMs
             printf(!"==========\n") 'x10
             printf(!"State---: %d\n",.state)
@@ -18,15 +18,15 @@ namespace Auios
         return 0
     end function
     
-    function AuMsGet() as AuMs
-        dim as AuMs thisMs
+    function AuMouseGet() as AuMouse
+        dim as AuMouse thisMs
         with thisMs
             .state = getMouse(.x,.y,.wheel,.buttons,.clip)
         end with
         return thisMs
     end function
     
-    function AuMsCompare(thisMs1 as AuMs,thisMs2 as AuMs) as long
-        return memcmp(@thisMs1,@thisMs2,sizeof(AuMs)) 'Return 0 if they are the same
+    function AuMouseCompare(thisMs1 as AuMouse,thisMs2 as AuMouse) as long
+        return memcmp(@thisMs1,@thisMs2,sizeof(AuMouse)) 'Return 0 if they are the same
     end function
 end namespace

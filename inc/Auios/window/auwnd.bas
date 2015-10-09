@@ -6,7 +6,7 @@
 
 namespace Auios
     'Dumps all the variables to the console for debug purposes
-    function AuWndDump(thisWnd as AuWnd) as integer
+    function AuWindowDump(thisWnd as AuWindow) as integer
         with thisWnd
             printf(!"==========\n") 'x10
             printf(!"Title--: %s\n",.title)
@@ -21,8 +21,8 @@ namespace Auios
     end function
     
     'Call this first before creating the window. This initializes the variables
-    function AuWndInit(w as long,h as long,title as zstring*48,depth as long,pages as long,flags as long) as AuWnd
-        dim as AuWnd thisWnd
+    function AuWndInit(w as long,h as long,title as zstring*48,depth as long,pages as long,flags as long) as AuWindow
+        dim as AuWindow thisWnd
         
         with thisWnd
             .isInit = 1
@@ -37,30 +37,30 @@ namespace Auios
     end function
     
     'This is used for quick initializations
-    function AuWndInit(flag as byte,title as zstring*48) as AuWnd
+    function AuWindowInit(flag as byte,title as zstring*48) as AuWindow
         dim as integer w,h
-        dim as AuWnd thisWnd
+        dim as AuWindow thisWnd
         select case flag
         case 0 'Regular Init
-            thisWnd = AuWndInit()
+            thisWnd = AuWindowInit()
             exit select
         case 1 'Quick Fullscreen Init
             screeninfo w,h
-            thisWnd = AuWndInit(w,h,title,32,1,fb.GFX_FULLSCREEN or fb.GFX_ALPHA_PRIMITIVES or fb.GFX_HIGH_PRIORITY)
+            thisWnd = AuWindowInit(w,h,title,32,1,fb.GFX_FULLSCREEN or fb.GFX_ALPHA_PRIMITIVES or fb.GFX_HIGH_PRIORITY)
             exit select
         case 2
-            thisWnd = AuWndInit(800,600,title,32,1,0)
+            thisWnd = AuWindowInit(800,600,title,32,1,0)
             exit select
         case else
-            thisWnd = AuWndInit()
+            thisWnd = AuWindowInit()
             exit select
         end select
         
         return thisWnd
     end function
     
-    'Creates the window after initialization of AuWnd type
-    function AuWndCreate(thisWnd as AuWnd) as integer
+    'Creates the window after initialization of AuWindow type
+    function AuWindowCreate(thisWnd as AuWindow) as integer
         with thisWnd
             screenres(.w,.h,.depth,.pages,.flags)
             windowtitle .title
@@ -69,13 +69,13 @@ namespace Auios
     end function
     
     'Closes the window. Does not destroy the variables
-    function AuWndClose(thisWnd as AuWnd) as integer
+    function AuWindowClose(thisWnd as AuWindow) as integer
         screen 0
         return 0
     end function
     
-    'Close the window and destroys AuWnd variables.
-    function AuWndDestroy(thisWnd as AuWnd) as integer
+    'Close the window and destroys AuWindow variables.
+    function AuWindowDestroy(thisWnd as AuWindow) as integer
         with thisWnd
             .isInit = 0
             .w = 0

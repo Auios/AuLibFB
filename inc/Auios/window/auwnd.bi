@@ -8,7 +8,7 @@
     #inclib "auwnd"
 
     namespace Auios
-        type AuWnd
+        type AuWindow
             public:
             as ubyte isInit
             
@@ -20,11 +20,11 @@
             as zstring*48 title
         end type
         
-        declare function AuWndDump(thisWnd as AuWnd) as integer
-        declare function AuWndInit overload(w as long = 640, h as long = 480, title as zstring*48 = "Application", depth as long = 32, pages as long = 1, flags as long = 0) as AuWnd
-        declare function AuWndInit overload(flag as byte,as zstring*48 = "Application") as AuWnd
-        declare function AuWndCreate(thisWnd as AuWnd) as integer
-        declare function AuWndClose(thisWnd as AuWnd) as integer
-        declare function AuWndDestroy(thisWnd as AuWnd) as integer
+        declare function AuWndDump(thisWnd as AuWindow) as integer
+        declare function AuWindowInit overload(w as long = 640, h as long = 480, title as zstring*48 = "Application", depth as long = 32, pages as long = 1, flags as long = 0) as AuWindow
+        declare function AuWindowInit overload(flag as byte,as zstring*48 = "Application") as AuWindow
+        declare function AuWindowCreate(thisWnd as AuWindow) as integer
+        declare function AuWindowClose(thisWnd as AuWindow) as integer
+        declare function AuWindowDestroy(thisWnd as AuWindow) as integer
     end namespace
 #endif
