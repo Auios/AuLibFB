@@ -2,7 +2,7 @@
 
 #include "crt.bi"
 #include "fbgfx.bi"
-#include ".\inc\auios\auios.bi"
+#include "auios\auios.bi"
 
 using Auios
 
