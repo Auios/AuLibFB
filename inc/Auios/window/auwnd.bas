@@ -6,7 +6,11 @@
 
 namespace Auios
     'Dumps all the variables to the console for debug purposes
+<<<<<<< HEAD
     function AuWindowDump(thisWnd as AuWindow) as integer
+=======
+    sub AuWndDump(thisWnd as AuWnd)
+>>>>>>> parent of 2e822e0... Libs
         with thisWnd
             printf(!"==========\n") 'x10
             printf(!"Title--: %s\n",.title)
@@ -17,8 +21,7 @@ namespace Auios
             printf(!"Pages--: %d\n",.pages)
             printf(!"Flags--: %d\n",.flags)
         end with
-        return 0
-    end function
+    end sub
     
     'Call this first before creating the window. This initializes the variables
     function AuWndInit(w as long,h as long,title as zstring*48,depth as long,pages as long,flags as long) as AuWindow
@@ -33,6 +36,7 @@ namespace Auios
             .pages = pages
             .flags = flags
         end with
+        
         return thisWnd
     end function
     
@@ -59,23 +63,35 @@ namespace Auios
         return thisWnd
     end function
     
+<<<<<<< HEAD
     'Creates the window after initialization of AuWindow type
     function AuWindowCreate(thisWnd as AuWindow) as integer
+=======
+    'Creates the window after initialization of AuWnd type
+    sub AuWndCreate(thisWnd as AuWnd)
+>>>>>>> parent of 2e822e0... Libs
         with thisWnd
             screenres(.w,.h,.depth,.pages,.flags)
             windowtitle .title
         end with
-        return 0
-    end function
+    end sub
     
     'Closes the window. Does not destroy the variables
+<<<<<<< HEAD
     function AuWindowClose(thisWnd as AuWindow) as integer
+=======
+    sub AuWndClose(thisWnd as AuWnd)
+>>>>>>> parent of 2e822e0... Libs
         screen 0
-        return 0
-    end function
+    end sub
     
+<<<<<<< HEAD
     'Close the window and destroys AuWindow variables.
     function AuWindowDestroy(thisWnd as AuWindow) as integer
+=======
+    'Close the window and destroys AuWnd variables.
+    sub AuWndDestroy(thisWnd as AuWnd)
+>>>>>>> parent of 2e822e0... Libs
         with thisWnd
             .isInit = 0
             .w = 0
@@ -87,6 +103,5 @@ namespace Auios
         end with
         
         screen 0
-        return 0
-    end function
+    end sub
 end namespace

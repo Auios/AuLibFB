@@ -1,4 +1,4 @@
-'Test1
+'TestProgram
 
 #include "crt.bi"
 #include "fbgfx.bi"
