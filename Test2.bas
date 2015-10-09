@@ -5,12 +5,12 @@
 
 using auios
 
-dim as AuWnd wnd = AuWndInit()
+dim as AuWindow wnd = AuWindowInit()
 
-AuWndCreate(wnd)
+AuWindowCreate(wnd)
 
 print "Hello!"
 
 sleep
 
-end AuWndDestroy(wnd)
+end AuWindowDestroy(wnd)

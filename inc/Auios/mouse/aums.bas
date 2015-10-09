@@ -6,15 +6,7 @@
 
 namespace Auios
     'Dump all variables to the console for debugging
-<<<<<<< HEAD
-<<<<<<< HEAD
-    function AuMsDump(thisMs as AuMouse) as integer
-=======
-    sub AuMsDump(thisMs as AuMs)
->>>>>>> parent of 2e822e0... Libs
-=======
-    sub AuMsDump(thisMs as AuMs)
->>>>>>> parent of 2e822e0... Libs
+    function AuMouseDump(thisMs as AuMouse) as integer
         with thisMs
             printf(!"==========\n") 'x10
             printf(!"State---: %d\n",.state)
@@ -23,7 +15,8 @@ namespace Auios
             printf(!"Buttons-: %d\n",.buttons)
             printf(!"Clip----: %d\n",.clip)
         end with
-    end sub
+        return 0
+    end function
     
     function AuMouseGet() as AuMouse
         dim as AuMouse thisMs
@@ -33,15 +26,7 @@ namespace Auios
         return thisMs
     end function
     
-<<<<<<< HEAD
     function AuMouseCompare(thisMs1 as AuMouse,thisMs2 as AuMouse) as long
         return memcmp(@thisMs1,@thisMs2,sizeof(AuMouse)) 'Return 0 if they are the same
-=======
-    function AuMsCompare(thisMs1 as AuMs,thisMs2 as AuMs) as long
-        return memcmp(@thisMs1,@thisMs2,sizeof(AuMs))
-<<<<<<< HEAD
->>>>>>> parent of 2e822e0... Libs
-=======
->>>>>>> parent of 2e822e0... Libs
     end function
 end namespace
