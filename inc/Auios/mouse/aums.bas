@@ -1,5 +1,5 @@
 'AuMs.bas (Auios Mouse)
-#define fbc -lib -x ../../../lib/libaums.a
+#define fbc -lib -x ../../../lib/win64/libaums.a
 
 #include "crt.bi"
 #include "aums.bi"

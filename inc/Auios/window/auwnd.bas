@@ -1,5 +1,5 @@
 'AuWnd.bas (Auios Window)
-#define fbc -lib -x ../../../lib/libauwnd.a
+#define fbc -lib -x ../../../lib/win64/libauwnd.a
 
 #include "crt.bi"
 #include "auwnd.bi"
