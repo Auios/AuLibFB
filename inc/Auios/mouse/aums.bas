@@ -26,7 +26,7 @@ namespace Auios
         return thisMs
     end function
     
-    function AuMouseCompare(thisMs1 as AuMouse,thisMs2 as AuMouse) as long
+    function AuMouseCompare(thisMs1 as AuMouse,thisMs2 as AuMouse) as integer
         return memcmp(@thisMs1,@thisMs2,sizeof(AuMouse)) 'Return 0 if they are the same
     end function
 end namespace

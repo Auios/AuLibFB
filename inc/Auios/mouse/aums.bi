@@ -16,6 +16,6 @@
         
         declare function AuMouseDump(thisMs as AuMouse) as integer
         declare function AuMouseGet() as AuMouse
-        declare function AuMouseCompare(thisMs1 as AuMouse, thisMs2 as AuMouse) as long 'Return 0 if they are the same
+        declare function AuMouseCompare(thisMs1 as AuMouse, thisMs2 as AuMouse) as integer 'Return 0 if they are the same
     end namespace
 #endif

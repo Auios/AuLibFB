@@ -10,7 +10,7 @@
     namespace Auios
         type AuWindow
             public:
-            as ubyte isInit
+            as ubyte isInit,isGUI
             
             as long w,h
             as long depth

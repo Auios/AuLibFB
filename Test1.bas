@@ -11,12 +11,14 @@ using Auios
 'Variables
 dim shared as AuWindow myWnd 'Could use myWnd = AuWndInit(2,"MyWindowTitle")
 dim as AuMouse ms,msOld
+dim as AuGUI myGUI
 
 'Declares
 declare sub keyboard()
 
 'Init
 myWnd = AuWindowInit(800,600,"MyWindowTitle")
+myGUI = AuGUIInit(10,10,200,150,"Test")
 'Create the window
 'AuWndCreate(AuWndInit())
 AuWindowCreate(myWnd)
@@ -31,9 +33,12 @@ do
     
     keyboard()
     
-    if ms.buttons = 1 then
-        circle(ms.x,ms.y),15,rgb(200,200,200),,,,f
-    end if
+    screenlock
+        AuGUIRender(myGUI)
+        if ms.buttons = 1 then
+            circle(ms.x,ms.y),15,rgb(200,200,200),,,,f
+        end if
+    screenunlock
     
     sleep 1,1
 loop until inkey = chr(27)

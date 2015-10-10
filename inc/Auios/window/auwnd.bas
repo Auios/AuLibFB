@@ -23,9 +23,7 @@ namespace Auios
     'Call this first before creating the window. This initializes the variables
     function AuWindowInit(w as long,h as long,title as zstring*48,depth as long,pages as long,flags as long) as AuWindow
         dim as AuWindow thisWnd
-        
         with thisWnd
-            .isInit = 1
             .w = w
             .h = h
             .title = title
@@ -33,15 +31,14 @@ namespace Auios
             .pages = pages
             .flags = flags
         end with
-        
         return thisWnd
     end function
     
     'This is used for quick initializations
-    function AuWindowInit(flag as byte,title as zstring*48) as AuWindow
+    function AuWindowInit(flags as byte,title as zstring*48) as AuWindow
         dim as integer w,h
         dim as AuWindow thisWnd
-        select case flag
+        select case flags
         case 0 'Regular Init
             thisWnd = AuWindowInit()
             exit select
@@ -78,7 +75,7 @@ namespace Auios
     'Close the window and destroys AuWindow variables.
     function AuWindowDestroy(thisWnd as AuWindow) as integer
         with thisWnd
-            .isInit = 0
+            .isGUI = 0
             .w = 0
             .h = 0
             .depth = 0
