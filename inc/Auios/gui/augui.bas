@@ -17,12 +17,52 @@ namespace Auios
         return thisGUI
     end function
     
-    function AuGUIRender(thisGUI as AuGUI) as integer
+    function AuGUIOpen(thisGUI as AuGUI) as integer
         with thisGUI
-            'view(.x,.y)-(.x+.w,.y+10)
-            'window(0,0)-(.w,10)
-            line(.x,.y)-(.x+.w,.y+10),rgb(200,200,200),bf
-            draw string(.x+4,.y+2),.title,rgb(100,100,100)
+            .isOpen = 1
+        end with
+        return 0
+    end function
+    
+    function AuGUIClose(thisGUI as AuGUI) as integer
+        with thisGUI
+            .isOpen = 0
+        end with
+        return 0
+    end function
+    
+    function AuGUIDestroy(thisGUI as AuGUI) as integer
+        with thisGUI
+            
+        end with
+        return 0
+    end function
+    
+    function AuGUIRender(thisGUI as AuGUI) as integer
+        dim as byte titleSzY = 16
+        dim as uinteger clrTitle = rgb(180,180,180)
+        dim as uinteger clrCanvas = rgb(200,200,200)
+        dim as uinteger clrBorder = rgb(100,100,100)
+        dim as uinteger clrText = rgb(100,100,100)
+        with thisGUI
+            if .isOpen then
+                view(.x,.y)-(.x+.w,.y+titleSzY) 
+                    line(0,0)-(.w,TitleSzY),clrTitle,bf 'Title canvas
+                    line(0,TitleSzY-1)-(.w,TitleSzY-1),clrBorder 'Title Border
+                    draw string(4,4),.title,clrText 'Window Title
+                window
+                view(.x,.y+titleSzY)-(.x+.w,.y+titleSzY+.h)
+                    line(0,0)-(.x,.h),clrCanvas,bf 'Window canvas
+                window
+                view(.x-1,.y-1)-(.x+.w+1,.y+.h+titleSzY+1)
+                    line(0,0)-(.w+1,.h+titleSzY+1),clrBorder,b 'Window border
+                window
+                view(.x+.w-15,.y+titleSzY-16)-(.x+.w,.y+titleSzY)
+                    line(0,0)-(14,14),clrBorder,b 'X border
+                    line(2,2)-(12,12),clrText 'Upper left to lower right
+                    line(12,2)-(2,12),clrText 'Upper right to lower left
+                window
+            end if
         end with
         return 0
     end function
