@@ -19,10 +19,11 @@ declare sub clearScreen()
 
 'Init
 myWnd = AuWindowInit(3,"MyWindowTitle")
-myGUI = AuGUIInit(500,500,200,150,"Test")
+myGUI = AuGUIInit(200,200,200,150,"Test")
 'Create the window
 'AuWndCreate(AuWndInit())
 AuWindowCreate(myWnd)
+AuGUIOpen(myGUI)
 
 clearScreen()
 
