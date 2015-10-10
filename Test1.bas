@@ -15,15 +15,16 @@ dim as AuGUI myGUI
 
 'Declares
 declare sub keyboard()
+declare sub clearScreen()
 
 'Init
-myWnd = AuWindowInit(800,600,"MyWindowTitle")
-myGUI = AuGUIInit(10,10,200,150,"Test")
+myWnd = AuWindowInit(3,"MyWindowTitle")
+myGUI = AuGUIInit(500,500,200,150,"Test")
 'Create the window
 'AuWndCreate(AuWndInit())
 AuWindowCreate(myWnd)
 
-line(0,0)-(myWnd.w,myWnd.h),rgb(100,100,100),bf
+clearScreen()
 
 do
     msOld = ms
@@ -48,5 +49,9 @@ AuWindowDestroy(myWnd)
 end 0
 
 sub keyboard()
-    if multikey(fb.sc_c) then line(0,0)-(myWnd.w,myWnd.h),rgb(100,100,100),bf
+    if multikey(fb.sc_c) then clearScreen()
+end sub
+
+sub clearScreen()
+    line(0,0)-(myWnd.w,myWnd.h),rgb(255,0,255),bf
 end sub
