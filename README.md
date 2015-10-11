@@ -2,4 +2,4 @@
 
 Auios Library
 
-Windows, Mouse, GUI, Keyboard, Fonts, Images, Networking, Sounds, and other functions.
+Windows, Mouse, Keyboard, GUI, Fonts, Images, Networking, Sounds, and other functions.
