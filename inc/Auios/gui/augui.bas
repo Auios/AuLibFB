@@ -50,20 +50,27 @@ namespace Auios
                     line(0,0)-(.w,TitleSzY),clrTitle,bf 'Title canvas
                     line(0,TitleSzY-1)-(.w,TitleSzY-1),clrBorder 'Title Border
                     draw string(4,4),.title,clrText 'Window Title
-                window
+                
                 view(.x,.y+titleSzY)-(.x+.w,.y+titleSzY+.h)
                     line(0,0)-(.x,.h),clrCanvas,bf 'Window canvas
-                window
+                
                 view(.x-1,.y-1)-(.x+.w+1,.y+.h+titleSzY+1)
                     line(0,0)-(.w+1,.h+titleSzY+1),clrBorder,b 'Window border
-                window
+                
                 view(.x+.w-15,.y+titleSzY-16)-(.x+.w,.y+titleSzY)
                     line(0,0)-(14,14),clrBorder,b 'X border
                     line(2,2)-(12,12),clrText 'Upper left to lower right
                     line(12,2)-(2,12),clrText 'Upper right to lower left
+                
                 window
+                view screen
             end if
         end with
+        return 0
+    end function
+    
+    function AuGUIInput(thisGUI as AuGUI, thisMs as AuMouse) as integer
+        if 
         return 0
     end function
 end namespace

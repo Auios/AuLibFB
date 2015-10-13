@@ -9,9 +9,10 @@
 using Auios
 
 'Variables
+dim shared as integer i = 0
 dim shared as AuWindow myWnd 'Could use myWnd = AuWndInit(2,"MyWindowTitle")
 dim as AuMouse ms,msOld
-dim as AuGUI myGUI
+dim as AuGUI GUI(1 to 1)
 
 'Declares
 declare sub keyboard()
@@ -20,11 +21,11 @@ declare sub clearScreen()
 'Init
 'myWnd = AuWindowInit(3,"MyWindowTitle")
 myWnd = AuWindowInit(2,"MyWindowTitle")
-myGUI = AuGUIInit(200,200,200,150,"Test")
+GUI(1) = AuGUIInit(200,200,200,150,"Test")
 'Create the window
 'AuWndCreate(AuWndInit())
 AuWindowCreate(myWnd)
-AuGUIOpen(myGUI)
+AuGUIOpen(GUI(1))
 
 clearScreen()
 
@@ -35,9 +36,14 @@ do
     if AuMouseCompare(ms,msOld) <> 0 then AuMouseDump(ms)
     
     keyboard()
+    for i = lbound(GUI) to ubound(GUI)
+        AuGUIInput(GUI(i),ms)
+    next i
     
     screenlock
-        AuGUIRender(myGUI)
+        for i = lbound(GUI) to ubound(GUI)
+            AuGUIRender(GUI(i))
+        next i
         if ms.buttons = 1 then
             circle(ms.x,ms.y),15,rgb(200,100,100),,,,f
         end if

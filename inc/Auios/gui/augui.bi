@@ -2,6 +2,8 @@
 
 #ifndef __AUIOS_GUI__
 #define __AUIOS_GUI__
+
+    #include "../mouse/AuMs.bi"
     
     #inclib "augui"
     
@@ -20,5 +22,6 @@
         declare function AuGUIClose(thisGUI as AuGUI) as integer
         declare function AuGUIDestroy(thisGUI as AuGUI) as integer
         declare function AuGUIRender(thisGUI as AuGUI) as integer
+        declare function AuGUIInput(thisGUI as AuGUI, thisMs as AuMouse) as integer
     end namespace
 #endif
