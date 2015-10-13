@@ -18,7 +18,8 @@ declare sub keyboard()
 declare sub clearScreen()
 
 'Init
-myWnd = AuWindowInit(3,"MyWindowTitle")
+'myWnd = AuWindowInit(3,"MyWindowTitle")
+myWnd = AuWindowInit(2,"MyWindowTitle")
 myGUI = AuGUIInit(200,200,200,150,"Test")
 'Create the window
 'AuWndCreate(AuWndInit())
@@ -38,7 +39,7 @@ do
     screenlock
         AuGUIRender(myGUI)
         if ms.buttons = 1 then
-            circle(ms.x,ms.y),15,rgb(200,200,200),,,,f
+            circle(ms.x,ms.y),15,rgb(200,100,100),,,,f
         end if
     screenunlock
     
