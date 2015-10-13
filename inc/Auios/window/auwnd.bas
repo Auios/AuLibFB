@@ -38,30 +38,30 @@ namespace Auios
     end function
     
     'This is used for quick initializations
-    function AuWindowInit(flag as string,title as zstring*48) as AuWindow
-        dim as AuWindow thisWnd
-        dim as integer w,h
-        screeninfo w,h
-        select case ucase(flag)
-        case "" 'Regular Init
-            thisWnd = AuWindowInit()
-            exit select
-        case "1","FULL","FS","FULLSCREEN"
-            thisWnd = AuWindowInit(w,h,title,32,1,fb.GFX_FULLSCREEN or fb.GFX_ALPHA_PRIMITIVES or fb.GFX_HIGH_PRIORITY or fb.GFX_NO_FRAME)
-            exit select
-        case "2","WINDOW","WINDOWED","REG","REGULAR"
-            thisWnd = AuWindowInit(800,600,title,32,1,0)
-            exit select
-        case "3","GUI"
-            thisWnd = AuWindowInit(w,h,title,32,1,fb.GFX_SHAPED_WINDOW or fb.GFX_ALPHA_PRIMITIVES or fb.GFX_HIGH_PRIORITY or fb.GFX_NO_FRAME)
-            exit select
-        case else
-            thisWnd = AuWindowInit()
-            exit select
-        end select
-        
-        return thisWnd
-    end function
+'    function AuWindowInit(flag as string,title as zstring*48) as AuWindow
+'        dim as AuWindow thisWnd
+'        dim as integer w,h
+'        screeninfo w,h
+'        select case ucase(flag)
+'        case "" 'Regular Init
+'            thisWnd = AuWindowInit()
+'            exit select
+'        case "1","FULL","FS","FULLSCREEN"
+'            thisWnd = AuWindowInit(w,h,title,32,1,fb.GFX_FULLSCREEN or fb.GFX_ALPHA_PRIMITIVES or fb.GFX_HIGH_PRIORITY or fb.GFX_NO_FRAME)
+'            exit select
+'        case "2","WINDOW","WINDOWED","REG","REGULAR"
+'            thisWnd = AuWindowInit(800,600,title,32,1,0)
+'            exit select
+'        case "3","GUI"
+'            thisWnd = AuWindowInit(w,h,title,32,1,fb.GFX_SHAPED_WINDOW or fb.GFX_ALPHA_PRIMITIVES or fb.GFX_HIGH_PRIORITY or fb.GFX_NO_FRAME)
+'            exit select
+'        case else
+'            thisWnd = AuWindowInit()
+'            exit select
+'        end select
+'        
+'        return thisWnd
+'    end function
     
     'Creates the window after initialization of AuWindow type
     function AuWindowCreate(thisWnd as AuWindow) as integer
