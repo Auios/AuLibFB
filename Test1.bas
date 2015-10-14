@@ -12,7 +12,7 @@ using Auios
 dim shared as integer i = 0
 dim shared as AuWindow myWnd 'Could use myWnd = AuWndInit(2,"MyWindowTitle")
 dim as AuMouse ms,msOld
-dim as AuGUI GUI(1 to 1)
+dim as AuGUI GUI(1 to 2)
 
 'Declares
 declare sub keyboard()
