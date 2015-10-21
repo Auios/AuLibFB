@@ -7,29 +7,6 @@
 #include "auwnd.bi"
 
 namespace Auios
-    constructor AuWindow(w as long, h as long, depth as long, pages as long, flags as long, title as zstring*48)
-        with this
-            .w = w
-            .h = h
-            .title = title
-            .depth = depth
-            .pages = pages
-            .flags = flags
-        end with
-    end constructor
-    
-    destructor AuWindow()
-        with this
-            .w = 0
-            .h = 0
-            .depth = 0
-            .pages = 0
-            .flags = 0
-            .title = "N/A"
-        end with
-        screen 0
-    end destructor
-    
     'Dumps all the variables to the console for debug purposes
     function AuWindow.Dump as integer
         with this
@@ -45,25 +22,26 @@ namespace Auios
     end function
     
     'Sets the window
-    function AuWindow.set(w as long, h as long, depth as long, pages as long, flags as long, title as zstring*48) as integer
+    function AuWindow.set(w as long, h as long, depth as long, pages as long, flags as long, title as zstring*32) as integer
         with this
             .w = w
             .h = h
-            .title = title
             .depth = depth
             .pages = pages
             .flags = flags
+            .title = title
         end with
         return 0
     end function
     
     'Creates the window
     function AuWindow.Create() as integer
+        dim as integer result
         with this
-            screenres(.w,.h,.depth,.pages,.flags)
+            result = screenres(.w,.h,.depth,.pages,.flags)
             windowtitle .title
         end with
-        return 0
+        return result
     end function
     
     'Closes the window. Does not destroy the variables

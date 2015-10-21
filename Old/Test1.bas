@@ -4,7 +4,7 @@
 
 #include "crt.bi"
 #include "fbgfx.bi"
-#include "auios\auios.bi"
+#include "aulib.bi"
 
 using Auios
 

@@ -16,9 +16,8 @@
             as zstring*48 title
             
             public:
-            declare constructor(as long, as long, as long, as long, as long, as zstring*32)
-            declare destructor()
-            declare function set(as long, as long, as long, as long, as long, as zstring*32) as integer
+            'declare function set() as integer
+            declare function set(as long = 800, as long = 600, as long = 32, as long = 1, as long = 0, as zstring*32 = "Application") as integer
             declare function setSize(as long, as long) as integer
             declare function getSize() as integer
             declare function setTitle(as zstring*32) as integer
