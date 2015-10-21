@@ -2,13 +2,14 @@
 #define fbc -lib -x ../../../lib/win32/libaums.a
 
 #include "crt.bi"
+#include "../other/auother.bas"
 #include "aums.bi"
 
 namespace Auios
     'Dump all variables to the console for debugging
-    function AuMouseDump(thisMs as AuMouse) as integer
+    function AuMouse.Dump() as integer
         with this
-            printf(!"==========\n") 'x10
+            printBar("-",10)
             printf(!"State---: %d\n",.state)
             printf(!"X,Y-----: %d,%d\n",.x,.y)
             printf(!"Wheel---: %d\n",.wheel)
@@ -18,12 +19,25 @@ namespace Auios
         return 0
     end function
     
-    function AuMouseGet() as AuMouse
-        dim as AuMouse thisMs
+    function AuMouse.Set(x as long, y as long, visible as long, clip as long) as integer
+        dim as long result = setmouse(x,y,visible,clip)
+        with this
+            .x = x
+            .y = y
+            .visible = visible
+            .clip = clip
+        end with
+        return result
+    end function
+    
+    function AuMouse.Get(byref x as long, byref y as long, byref wheel as long) as integer
         with this
             .state = getMouse(.x,.y,.wheel,.buttons,.clip)
+            x = .x
+            y = .y
+            wheel = .wheel
+            return .state
         end with
-        return thisMs
     end function
     
     function AuMouseCompare(thisMs1 as AuMouse,thisMs2 as AuMouse) as integer

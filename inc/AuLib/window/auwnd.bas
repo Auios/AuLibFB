@@ -33,7 +33,7 @@ namespace Auios
     'Dumps all the variables to the console for debug purposes
     function AuWindow.Dump as integer
         with this
-            
+            printBar("-",10)
             printf(!"Width--: %d\n",.w)
             printf(!"Height-: %d\n",.h)
             printf(!"Depth--: %d\n",.depth)

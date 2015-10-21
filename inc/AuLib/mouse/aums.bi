@@ -13,11 +13,12 @@
             as long wheel
             as long buttons
             as long clip
+            as long visible
             
             public:
             declare function dump() as integer
-            declare function set() as integer
-            declare function get() as integer
+            declare function set(as long, as long, as long, as long) as integer
+            declare function get(byref as long, byref as long, byref as long) as integer
         end type
         
         declare function AuMouseCompare(thisMs1 as AuMouse, thisMs2 as AuMouse) as integer 'Return 0 if they are the same
