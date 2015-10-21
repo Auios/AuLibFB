@@ -2,27 +2,31 @@
 
 #ifndef __AUIOS_WINDOW__
 #define __AUIOS_WINDOW__
+    'include "math.bi"
     
     #inclib "auwnd"
 
     namespace Auios
         type AuWindow
-            public:
-            as ubyte isGUI
-            
+            private:
             as long w,h
             as long depth
             as long pages
             as long flags
-            
             as zstring*48 title
+            
+            public:
+            declare constructor(as long, as long, as long, as long, as long, as zstring*32)
+            declare destructor()
+            declare function set(as long, as long, as long, as long, as long, as zstring*32) as integer
+            declare function setSize(as long, as long) as integer
+            declare function getSize() as integer
+            declare function setTitle(as zstring*32) as integer
+            declare function getTitle() as string
+            declare function create() as integer
+            declare function close() as integer
+            declare function destroy() as integer
+            declare function dump() as integer
         end type
-        
-        declare function AuWndDump(thisWnd as AuWindow) as integer
-        declare function AuWindowInit overload(w as long = 640, h as long = 480, title as zstring*48 = "Application", depth as long = 32, pages as long = 1, flags as long = 0) as AuWindow
-        declare function AuWindowCreate(thisWnd as AuWindow) as integer
-        declare function AuWindowResize(w as long, h as long) as AuWindow
-        declare function AuWindowClose(thisWnd as AuWindow) as integer
-        declare function AuWindowDestroy(thisWnd as AuWindow) as integer
     end namespace
 #endif
