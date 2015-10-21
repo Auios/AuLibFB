@@ -1,5 +1,5 @@
 'AuMs.bas (Auios Mouse)
-#define fbc -lib -x ../../../lib/win64/libaums.a
+#define fbc -lib -x ../../../lib/win32/libaums.a
 
 #include "crt.bi"
 #include "aums.bi"
@@ -7,7 +7,7 @@
 namespace Auios
     'Dump all variables to the console for debugging
     function AuMouseDump(thisMs as AuMouse) as integer
-        with thisMs
+        with this
             printf(!"==========\n") 'x10
             printf(!"State---: %d\n",.state)
             printf(!"X,Y-----: %d,%d\n",.x,.y)
@@ -20,7 +20,7 @@ namespace Auios
     
     function AuMouseGet() as AuMouse
         dim as AuMouse thisMs
-        with thisMs
+        with this
             .state = getMouse(.x,.y,.wheel,.buttons,.clip)
         end with
         return thisMs

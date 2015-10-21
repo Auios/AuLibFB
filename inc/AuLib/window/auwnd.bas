@@ -3,6 +3,7 @@
 
 #include "crt.bi"
 #include "fbgfx.bi"
+#include "../other/auother.bas"
 #include "auwnd.bi"
 
 namespace Auios
@@ -32,10 +33,7 @@ namespace Auios
     'Dumps all the variables to the console for debug purposes
     function AuWindow.Dump as integer
         with this
-            for i as integer = 1 to 10
-                printf(!"=")
-            next i
-            printf(!"\n")
+            
             printf(!"Width--: %d\n",.w)
             printf(!"Height-: %d\n",.h)
             printf(!"Depth--: %d\n",.depth)

@@ -1,3 +1,6 @@
-#include "window/auios/auwnd.bi"
-#include "mouse/auios/aums.bi"
-#include "gui/auios/augui.bi"
+#ifndef __AUIOS_ALL__
+#define __AUIOS_ALL__
+    #include "aulib/window/auwnd.bi"
+    #include "aulib/mouse/aums.bi"
+    #include "aulib/gui/augui.bi"
+#endif
