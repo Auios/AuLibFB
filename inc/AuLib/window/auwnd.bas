@@ -38,6 +38,16 @@ namespace Auios
         return 0
     end function
     
+    'Get width
+    function AuWindow.getW() as integer
+        return this.w
+    end function
+    
+    'Get height
+    function AuWindow.getH() as integer
+        return this.h
+    end function
+    
     'Creates the window
     function AuWindow.Create() as integer
         dim as integer result
