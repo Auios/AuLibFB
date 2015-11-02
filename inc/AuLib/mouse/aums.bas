@@ -7,8 +7,8 @@
 
 namespace Auios
     'Dump all variables to the console for debugging
-    function AuMouse.Dump() as integer
-        with this
+    function AuMouseDump(thisMs as AuMouse) as integer
+        with thisMs
             printBar("-",10)
             printf(!"State---: %d\n",.state)
             printf(!"X,Y-----: %d,%d\n",.x,.y)
@@ -19,19 +19,21 @@ namespace Auios
         return 0
     end function
     
-    function AuMouse.Set(x as long, y as long, visible as long, clip as long) as integer
+    function AuMouseSet(x as long, y as long, visible as long, clip as long) as AuMouse
+        dim as AuMouse thisMs
         dim as long result = setmouse(x,y,visible,clip)
-        with this
+        with thisMs
             .x = x
             .y = y
             .visible = visible
             .clip = clip
         end with
-        return result
+        return thisMs
     end function
     
-    function AuMouse.Get(byref x as long, byref y as long, byref wheel as long) as integer
-        with this
+    function AuMouseGet(byref thisMs as AuMouse) as integer
+        dim as long x,y,wheel
+        with thisMs
             .state = getMouse(.x,.y,.wheel,.buttons,.clip)
             x = .x
             y = .y

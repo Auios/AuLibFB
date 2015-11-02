@@ -1,10 +1,7 @@
-'AuWnd.bas (Auios Window)
-#define fbc -lib -x ../../../lib/win32/libauwnd.a
+'AuFileIO.bas (Auios File IO)
+#define fbc -lib -x ../../../lib/win32/libauio.a
 
-#include "crt.bi"
-#include "fbgfx.bi"
-#include "../other/auother.bas"
-#include "auwnd.bi"
+#include "io.bi"
 
 namespace Auios
     'Sets the window

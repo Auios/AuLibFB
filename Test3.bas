@@ -3,23 +3,23 @@
 using auios
 
 dim as AuWindow wnd
-wnd.dump("dim")
+AuWindowDump(wnd, "dim")
 sleep
 
-wnd.set()
-wnd.dump("set")
+wnd = AuWindowSet()
+AuWindowDump(wnd, "set")
 sleep
 
-wnd.create()
-wnd.dump("create")
+AuWindowCreate(wnd)
+AuWindowDump(wnd, "create")
 sleep
 
-wnd.hide()
-wnd.dump("close")
+AuWindowHide(wnd)
+AuWindowDump(wnd, "close")
 sleep
 
-wnd.destroy()
-wnd.dump("destroy")
+AuWindowDestroy(wnd)
+AuWindowDump(wnd, "destroy")
 sleep
 
 end 0
