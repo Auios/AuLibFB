@@ -3,7 +3,7 @@
 #ifndef __AUIOS_FileIO__
 #define __AUIOS_FileIO__
 
-    #inclib "auwnd"
+    #inclib "aufileio"
 
     namespace Auios
     

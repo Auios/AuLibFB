@@ -4,5 +4,5 @@
     #include "aulib/mouse/aums.bi"
     #include "aulib/gui/augui.bi"
     #include "aulib/math/auvec.bi"
-    #include "aulib/file/io.bi"
+    #include "aulib/file/fileio.bi"
 #endif
