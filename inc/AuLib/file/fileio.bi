@@ -6,6 +6,10 @@
     #inclib "aufileio"
 
     namespace Auios
-    
+        type AuFile
+            
+        end type
+        
+        declare AuFileOpen
     end namespace
 #endif
