@@ -5,7 +5,20 @@
 #include "fileio.bi"
 
 namespace Auios
-    function AuFileExists(path as zString*64) as integer
+    function AuFileOpen(path as string, mode as ubyte, ID as integer = freefile) as AuFile
+        dim as AuFile thisFile
+        
+        with thisFile
+            .exists = AuFileExists(path)
+            if(.exists = 0) then
+                
+            end if
+        end with
+        
+        return thisFile
+    end function
+    
+    function AuFileExists(path as String) as integer
         return fileExists(path)
     end function
     

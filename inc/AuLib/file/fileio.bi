@@ -7,12 +7,14 @@
 
     namespace Auios
         type AuFile
+            as ubyte mode
             as integer ID
             as integer exists
             as longint length
         end type
         
-        declare function AuFileExists(as zString*64) as integer
-        declare function AuFileLOF(as AuFile) as longint
+        declare function AuFileOpen(path as string, mode as ubyte, ID as integer) as AuFile
+        declare function AuFileExists(path as string) as integer
+        declare function AuFileLOF(thisFile as AuFile) as longint
     end namespace
 #endif
