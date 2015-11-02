@@ -7,9 +7,10 @@
 
     namespace Auios
         type AuFile
-            
+            as integer exists
+            as longint length
         end type
         
-        declare AuFileOpen
+        declare function AuFileExists(as zString*64) as integer
     end namespace
 #endif

@@ -4,5 +4,7 @@
 #include "fileio.bi"
 
 namespace Auios
-    
+    function AuFileExists(path as zString*64) as integer
+        return fileExists(path)
+    end function
 end namespace
