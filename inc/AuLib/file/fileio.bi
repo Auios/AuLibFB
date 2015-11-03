@@ -11,9 +11,11 @@
             as integer ID
             as integer exists
             as longint length
+            as string path
         end type
         
-        declare function AuFileOpen(path as string, mode as ubyte, ID as integer) as AuFile
+        declare function AuFileOpenForInput(path as string, ID as integer = freefile) as AuFile
+        declare function AuFileOpenForOutput(path as string, ID as integer = freefile) as AuFile
         declare function AuFileExists(path as string) as integer
         declare function AuFileLOF(thisFile as AuFile) as longint
     end namespace
