@@ -5,30 +5,14 @@
 #include "fileio.bi"
 
 namespace Auios
-    function AuFileOpenForInput(path as string, ID as integer) as AuFile
+    function AuFileOpen(path as string, ID as integer) as AuFile
         dim as AuFile thisFile
         
         with thisFile
             .exists = AuFileExists(path)
             if(.exists) then
                 .path = path
-                open .path for input as ID
-            else
-                .path = "NA"
-            end if
-        end with
-        
-        return thisFile
-    end function
-    
-    function AuFileOpenForOutput(path as string, ID as integer) as AuFile
-        dim as AuFile thisFile
-        
-        with thisFile
-            .exists = AuFileExists(path)
-            if(.exists) then
-                .path = path
-                open .path for output as ID
+                open .path for binary as #ID
             else
                 .path = "NA"
             end if
