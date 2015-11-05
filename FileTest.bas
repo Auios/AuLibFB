@@ -1,17 +1,19 @@
 'File test
 #include "AuLib.bi"
 
-dim as string buffer
+using Auios
 
-var ff = freefile
-print ff
-open "thisFile.txt" for binary as #ff
-if lof(ff) > 0 then
-    buffer = space(lof(ff))
-    get #ff,5,buffer
-end if
+dim as AuFile myFile
 
-print buffer
-close #ff
-
+print myFile.size
+myFile = AuFileOpen("thisFile.txt")
+print myFile.path
+print myFile.size
+print myFile.isOpen
+AuFileReadAll(myFile)
+print "fuck"
+print myFile.contents
+print len(myFile.contents)
+AuFileClose(myFile)
+print AuFile.isOpen
 sleep
