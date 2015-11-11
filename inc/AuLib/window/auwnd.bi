@@ -24,5 +24,7 @@
         declare function AuWindowHide(thisWnd as AuWindow) as integer
         declare function AuWindowDestroy(as AuWindow) as integer
         declare function AuWindowDump(as AuWindow, as zstring*32 = "") as integer
+        
+        declare function AuWindowPrintBar(charVar as zstring*1, cnt as long) as integer
     end namespace
 #endif

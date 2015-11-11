@@ -2,14 +2,13 @@
 #define fbc -lib -x ../../../lib/win32/libaums.a
 
 #include "crt.bi"
-#include "../other/auother.bas"
 #include "aums.bi"
 
 namespace Auios
     'Dump all variables to the console for debugging
     function AuMouseDump(thisMs as AuMouse) as integer
         with thisMs
-            printBar("-",10)
+            AuMousePrintBar("-",10)
             printf(!"State---: %d\n",.state)
             printf(!"X,Y-----: %d,%d\n",.x,.y)
             printf(!"Wheel---: %d\n",.wheel)
@@ -44,5 +43,13 @@ namespace Auios
     
     function AuMouseCompare(thisMs1 as AuMouse,thisMs2 as AuMouse) as integer
         return memcmp(@thisMs1,@thisMs2,sizeof(AuMouse)) 'Return 0 if they are the same
+    end function
+    
+    function AuMousePrintBar(charVar as zstring*1, cnt as long) as integer
+        for i as integer = 1 to 10
+            printf(!"%s",charVar)
+        next i
+        printf(!"\n")
+        return 0
     end function
 end namespace

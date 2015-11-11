@@ -20,5 +20,7 @@
         declare function AuMouseGet(byref thisMs as AuMouse) as integer
         
         declare function AuMouseCompare(thisMs1 as AuMouse, thisMs2 as AuMouse) as integer 'Return 0 if they are the same
+        
+        declare function AuMousePrintBar(charVar as zstring*1, cnt as long) as integer
     end namespace
 #endif

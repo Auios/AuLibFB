@@ -3,7 +3,6 @@
 
 #include "crt.bi"
 #include "fbgfx.bi"
-#include "../other/auother.bas"
 #include "auwnd.bi"
 
 namespace Auios
@@ -66,7 +65,7 @@ namespace Auios
     'Dumps all the variables to the console for debug purposes
     function AuWindowDump(thisWnd as AuWindow, message as zstring*32) as integer
         with thisWnd
-            printBar("-",10)
+            AuWindowPrintBar("-",10)
             if(message <> "") then printf(!"%s\n",message)
             printf(!"Width---: %d\n",.w)
             printf(!"Height--: %d\n",.h)
@@ -76,6 +75,14 @@ namespace Auios
             printf(!"Title---: %s\n",.title)
             printf(!"Visible-: %d\n",.visible)
         end with
+        return 0
+    end function
+    
+    function AuWindowPrintBar(charVar as zstring*1, cnt as long) as integer
+        for i as integer = 1 to 10
+            printf(!"%s",charVar)
+        next i
+        printf(!"\n")
         return 0
     end function
 end namespace
