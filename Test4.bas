@@ -35,6 +35,7 @@ AuWindowCreate(wnd)
 'Main loop
 do
     with ent
+        .speed+=0.1
         if .direction then
             if .steps <= .xb then
                 .steps+=.speed
@@ -71,7 +72,7 @@ do
     ent.render()
     screenunlock
     
-    sleep 20,1
+    sleep 1,1
 loop until inkey = chr(27)
 
 constructor entity
