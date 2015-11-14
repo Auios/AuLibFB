@@ -35,21 +35,18 @@ AuWindowCreate(wnd)
 'Main loop
 do
     with ent
-        .speed+=0.1
         if .direction then
             if .steps <= .xb then
                 .steps+=.speed
                 .x+=.speed
                 .y+=.slope*.speed
             end if
-            
         else
             if .steps >= .xa then
                 .steps-=.speed
                 .x-=.speed
                 .y-=.slope*.speed
             end if
-            
         end if
         if .steps < .xa then
                 .direction = 1
@@ -92,7 +89,7 @@ constructor entity
     yd = dist_1d(ya,yb)
     slope = (yb-ya)/(xb-xa)
     
-    speed = 5
+    speed = 1
 end constructor
 
 function entity.render() as integer
