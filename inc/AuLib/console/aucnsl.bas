@@ -1,4 +1,4 @@
-'AuCnsle.bas (Auios Console)
+'AuCnsl.bas (Auios Console)
 #define fbc -lib -x ../../../lib/win32/libaucnsl.a
 
 #include "windows.bi"
