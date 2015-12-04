@@ -15,7 +15,8 @@
             declare sub setTitle(as zstring*48)
             
             'Getters
-            declare sub getSize(byref as integer, byref as integer)
+            declare sub getSize overload()
+            declare sub getSize overload(byref as integer, byref as integer)
         end type
         
         'Setters
@@ -23,6 +24,7 @@
         declare sub AuConsoleSetTitle(as AuConsole ,as zstring*48)
         
         'Getters
-        declare sub AuConsoleStSize(byref as integer, byref as integer)
+        declare sub AuConsoleStSize overload(as AuConsole)
+        declare sub AuConsoleStSize overload(as AuConsole, byref as integer, byref as integer)
     end namespace
 #endif

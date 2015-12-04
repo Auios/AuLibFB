@@ -10,11 +10,21 @@ namespace Auios
         SetConsoleCursorPosition( GetStdHandle(STD_OUTPUT_HANDLE),type(x,y))
     end sub
     
-    sub AuConsoleGetSize(cnsl as AuConsole)
-        with cnsl
+    sub AuConsoleGetSize overload(thisCnsl as AuConsole)
+        with thisCnsl
             GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE),@.csbi)
             .w = .csbi.srWindow.Right - .csbi.srWindow.Left+1
             .h = .csbi.srWindow.Bottom - .csbi.srWindow.Top+1
+        end with
+    end sub
+    
+    sub AuConsoleGetSize overload(thisCnsl as AuConsole, byref ww as integer, byref hh as integer)
+        with thisCnsl
+            GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE),@.csbi)
+            .w = .csbi.srWindow.Right - .csbi.srWindow.Left+1
+            .h = .csbi.srWindow.Bottom - .csbi.srWindow.Top+1
+            ww = .w
+            hh = .h
         end with
     end sub
     
@@ -34,7 +44,13 @@ namespace Auios
         SetConsoleCursorPosition( GetStdHandle(STD_OUTPUT_HANDLE),type(x,y))
     end sub
     
-    sub AuConsole.getSize(byref ww as integer, byref hh as integer)
+    sub AuConsole.getSize overload()
+        GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE),@csbi)
+        w = csbi.srWindow.Right - csbi.srWindow.Left+1
+        h = csbi.srWindow.Bottom - csbi.srWindow.Top+1
+    end sub
+    
+    sub AuConsole.getSize overload(byref ww as integer, byref hh as integer)
         GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE),@csbi)
         w = csbi.srWindow.Right - csbi.srWindow.Left+1
         h = csbi.srWindow.Bottom - csbi.srWindow.Top+1
