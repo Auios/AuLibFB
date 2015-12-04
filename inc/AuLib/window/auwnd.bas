@@ -86,7 +86,8 @@ namespace Auios
         return 0
     end function
     
-    
+    'WARNING! No Mysofts allowed beyond this point!
+    'Danger!!!
     '////////////////////OOP version
     '////////////////////OOP version
     '////////////////////OOP version
