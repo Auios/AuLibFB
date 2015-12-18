@@ -18,6 +18,8 @@
         declare function dump() as integer
         declare function set(x as long, y as long, visible as long, clip as long) as AuMouse
         declare function AuMouseGet(byref thisMs as AuMouse) as integer
+        declare function AuMouseHide(byref thisMs as AuMouse) as integer
+        declare function AuMouseShow(byref thisMs as AuMouse) as integer
         
         declare function AuMouseCompare(thisMs1 as AuMouse, thisMs2 as AuMouse) as integer 'Return 0 if they are the same
         
