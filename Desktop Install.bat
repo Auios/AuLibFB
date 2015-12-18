@@ -1,2 +1,2 @@
-xcopy inc C:\Freebasic\inc /e/y
-xcopy lib C:\Freebasic\lib /e/y
+xcopy inc C:\FreeBasic-Au\FreeBasic\inc /e/y
+xcopy lib C:\FreeBasic-Au\FreeBasic\lib /e/y
