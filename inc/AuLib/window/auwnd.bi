@@ -3,6 +3,7 @@
 #ifndef __AUIOS_WINDOW__
 #define __AUIOS_WINDOW__
     'include "math.bi"
+    #include "AuGfx.bi"
     
     #inclib "auwnd"
 
