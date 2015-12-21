@@ -3,15 +3,13 @@
 #ifndef __AUIOS_WINDOW__
 #define __AUIOS_WINDOW__
     'include "math.bi"
-    #include "AuGfx.bi"
+    #include "crt.bi"
+    #include "fbgfx.bi"
     
     #inclib "auwnd"
 
     namespace Auios
         type AuWindow
-            private:
-                declare function PrintBar(charVar as zstring*1, cnt as long) as integer
-            public:
                 as long w,h
                 as long depth
                 as long pages
@@ -23,14 +21,6 @@
                 as zstring*48 driver
                 as zstring*48 title
                 as any ptr buffer
-                
-                declare sub Set(w as long = 800, h as long = 600, depth as long = 32, pages as long = 1, flags as long = 0, title as zstring*32 = "Application")
-                declare function GetSize(byref w as long, byref h as long) as integer
-                declare function Create() as integer
-                
-                declare function Hide() as integer
-                declare function Destroy() as integer
-                declare function Dump(message as zstring*32 = "") as integer
         end type
         
         declare function AuWindowSet(w as long = 800, h as long = 600, depth as long = 32, pages as long = 1, flags as long = 0, title as zstring*32 = "Application") as AuWindow

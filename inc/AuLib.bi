@@ -6,4 +6,5 @@
     #include "aulib/math/auvec.bi"
     #include "aulib/file/fileio.bi"
     #include "aulib/console/aucnsl2.bi"
+    #include "aulib/graphics/augfx.bi"
 #endif
