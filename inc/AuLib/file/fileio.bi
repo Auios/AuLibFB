@@ -2,7 +2,8 @@
 
 #ifndef __AUIOS_FileIO__
 #define __AUIOS_FileIO__
-
+    #include "file.bi"
+    
     #inclib "aufileio"
 
     namespace Auios

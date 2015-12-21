@@ -2,6 +2,8 @@
 
 #ifndef __AUIOS_CONSOLE__
 #define __AUIOS_CONSOLE__
+    #include "windows.bi"
+    
     #inclib "aucnsl"
 
     namespace Auios

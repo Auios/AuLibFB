@@ -2,6 +2,7 @@
 
 #ifndef __AUIOS_MOUSE__
 #define __AUIOS_MOUSE__
+    #include "crt.bi"
     
     #inclib "aums"
     
