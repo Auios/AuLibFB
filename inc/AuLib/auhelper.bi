@@ -7,7 +7,7 @@
 #include "crt.bi"
 
 nameSpace AuLib
-    function getWord(text as string, wordIndex as integer, delimiter as string) as string
+    function getWord(byval text as string, wordIndex as integer, delimiter as string) as string
         dim as zstring ptr word
         dim as integer wordsPassed
         word = strtok(text, delimiter)
@@ -21,7 +21,7 @@ nameSpace AuLib
         return(*word)
     end function
     
-    function getWordCount(text as string, wordIndex as integer, delimiter as string) as integer
+    function getWordCount(byval text as string, wordIndex as integer, delimiter as string) as integer
         dim as zstring ptr word
         dim as integer wordsPassed
         word = strtok(text, delimiter)
