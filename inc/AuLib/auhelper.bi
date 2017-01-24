@@ -41,9 +41,3 @@ nameSpace AuLib
 end nameSpace
 
 #ENDIF
-
-using aulib
-
-print getWordCount(!"wow\tso cool!",1,!" .,-!")
-
-sleep()
