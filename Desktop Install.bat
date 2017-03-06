@@ -1,1 +1,0 @@
-xcopy inc D:\AuFreeBasic\FreeBasic\inc /e/y
