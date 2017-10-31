@@ -17,6 +17,7 @@ type AuSQL
     declare function getRowCount() as uinteger
     declare function getFieldCount() as uinteger
     declare function getRow() as integer
+    declare function getItem(index as uinteger) as string
     declare sub close()
 end type
 
@@ -28,7 +29,11 @@ function AuSQL.connect(host as string, user as string, pass as string, dbName as
     this.dbName = dbName
     this.port = port
     this.flag = flag
-    return mysql_real_connect(this.conn, this.host, this.user, this.pass, this.dbName, this.port, NULL, this.flag)
+    if(mysql_real_connect(this.conn, this.host, this.user, this.pass, this.dbName, this.port, NULL, this.flag) = NULL) then
+        return 1
+    else
+        return 0
+    end if
 end function
 
 function AuSQL.getError() as string
@@ -67,6 +72,10 @@ function AuSQL.getRow() as integer
     else
         return 1
     end if
+end function
+
+function AuSQL.getItem(index as uinteger) as string
+    return *this.row[index]
 end function
 
 sub AuSQL.close()
