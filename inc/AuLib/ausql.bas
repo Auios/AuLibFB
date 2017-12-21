@@ -1,3 +1,6 @@
+'AuSQL.bi
+'9/15/2017
+
 #include once "mysql\mysql.bi"
 #define NULL 0
 
