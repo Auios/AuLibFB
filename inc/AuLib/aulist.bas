@@ -6,9 +6,7 @@
 
 #include once "crt.bi"
 
-#IFNDEF LISTJUMPSIZE
 #DEFINE LISTJUMPSIZE 32
-#ENDIF
 
 nameSpace AuLib
     #MACRO DeclareList(_T)
@@ -21,6 +19,7 @@ nameSpace AuLib
         declare sub deallocate()
         declare sub add(newItem as _T)
         declare sub remove(index as uinteger)
+        declare function length() as uinteger
     end type
     
     constructor _T##List
@@ -56,8 +55,16 @@ nameSpace AuLib
         count-=1
         if(count+(LISTJUMPSIZE\2)) < (allocated-LISTJUMPSIZE) then this.deallocate()
     end sub
+    
+    function _T##List.length() as uinteger
+        return this.count
+    end function
     #ENDMACRO
+    
+    #macro forEach(_V, _L)
+    for i as uinteger = 1 to _L##.count
+        dim as typeof(*_L##.item) _V = _L##.item[i-1]
+    #endMacro
 end nameSpace
 
-#UNDEF LISTJUMPSIZE
 #ENDIF
