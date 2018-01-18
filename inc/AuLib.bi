@@ -1,6 +1,7 @@
 #ifndef __AULIB_ALL__
 #define __AULIB_ALL__
 
+#include once "aulib/types/AuVector.bas"
 #include once "aulib/string/AuStringManip.bas"
 #include once "aulib/graphic/AuWindow.bas"
 #include once "aulib/input/AuMouse.bas"
