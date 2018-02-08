@@ -20,6 +20,7 @@ nameSpace AuLib
         declare sub add(newItem as _T)
         declare sub remove(index as uinteger)
         declare function length() as uinteger
+        declare function swapItem(srcIndex as uinteger, dstIndex as uinteger) as boolean
     end type
     
     constructor _T##List
@@ -58,6 +59,15 @@ nameSpace AuLib
     
     function _T##List.length() as uinteger
         return this.count
+    end function
+    
+    function _T##List.swapItem(srcIndex as uinteger, dstIndex as uinteger) as boolean
+        dim as boolean result = false
+        if(dstIndex <= this.count-1 AND srcIndex <= this.count-1) then
+            swap this.item[srcIndex], this.item[dstIndex]
+            result = true
+        end if
+        return result
     end function
     #ENDMACRO
     

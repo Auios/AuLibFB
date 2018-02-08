@@ -20,6 +20,7 @@ nameSpace AuLib
         declare sub push(newItem as _T)
         declare function pop() as _T
         declare function length() as uinteger
+        delcare function swapItem(srcIndex as uinteger, dstIndex as uinteger) as boolean
     end type
     
     constructor _T##Queue
@@ -60,6 +61,15 @@ nameSpace AuLib
     
     function _T##Queue.length() as uinteger
         return this.count
+    end function
+    
+    function _T##List.swapItem(srcIndex as uinteger, dstIndex as uinteger) as boolean
+        dim as boolean result = false
+        if(dstIndex <= this.count-1 AND srcIndex <= this.count-1) then
+            swap this.item[srcIndex], this.item[dstIndex]
+            result = true
+        end if
+        return result
     end function
     #ENDMACRO
 end nameSpace
