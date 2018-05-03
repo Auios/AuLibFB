@@ -11,4 +11,6 @@
 #include once "aulib/collection/AuStack.bas"
 #include once "aulib/collection/AuQueue.bas"
 
+#include once "aulib/FPSCounter.bas"
+
 #endif
