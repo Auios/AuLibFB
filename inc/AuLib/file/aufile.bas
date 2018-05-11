@@ -19,6 +19,7 @@ nameSpace AuLib
         declare sub closeFile()
         declare sub reset()
         declare function readLine() as string
+        declare sub print(lineStr as string)
     end type
     
     function AuFile.openRead(fileName as string) as boolean
@@ -65,6 +66,9 @@ nameSpace AuLib
         return text
     end function
     
+    sub AuFile.print(lineStr as string)
+        write #this.fileNumber, lineStr
+    end sub
 end nameSpace
 
 #ENDIF
