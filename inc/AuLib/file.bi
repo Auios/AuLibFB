@@ -16,7 +16,7 @@ nameSpace AuLib
         
         declare function OpenRead(fileName as string) as boolean
         declare function OpenWrite(fileName as string) as boolean
-        declare sub Close()
+        declare sub CloseFile()
         declare sub Reset()
         declare function ReadLine() as string
         declare sub Print(lineStr as string)
@@ -40,7 +40,7 @@ nameSpace AuLib
         return this.isOpen
     end function
     
-    sub File.Close()
+    sub File.CloseFile()
         if(this.isOpen) then
             close #this.fileNumber
             this.isOpen = 0

@@ -1,15 +1,15 @@
 #ifndef __AULIB_ALL__
 #define __AULIB_ALL__
 
-#include once "aulib/types/AuVector.bas"
-#include once "aulib/string/AuStringManip.bas"
-#include once "aulib/graphic/AuWindow.bas"
-#include once "aulib/input/AuMouse.bas"
-#include once "aulib/file/AuFile.bas"
-#include once "aulib/database/AuSQL.bas"
-#include once "aulib/collection/AuList.bas"
-#include once "aulib/collection/AuStack.bas"
-#include once "aulib/collection/AuQueue.bas"
+#include once "aulib/vector.bi"
+#include once "aulib/string.bi"
+#include once "aulib/window.bi"
+#include once "aulib/mouse.bi"
+#include once "aulib/file.bi"
+#include once "aulib/MySQL.bi"
+#include once "aulib/list.bi"
+#include once "aulib/stack.bi"
+#include once "aulib/queue.bi"
 
 #include once "aulib/FPSCounter.bas"
 

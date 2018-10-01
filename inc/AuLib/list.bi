@@ -1,8 +1,8 @@
-'AuList.bi
-'12/21/2017
+'list.bi
+'2018-10-01
 
-#IFNDEF _AULIST_BI_
-#DEFINE _AULIST_BI_
+#IFNDEF _AULIB_LIST_BI_
+#DEFINE _AULIB_LIST_BI_
 
 #include once "crt.bi"
 
