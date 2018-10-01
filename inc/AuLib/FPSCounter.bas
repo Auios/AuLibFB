@@ -1,19 +1,22 @@
+'FPSCounter.bas
+'2018-10-01
+
 type FPSCounter
-    as double startTime
-    as double endTime
-    as double timePassed
-    as integer frames, FPS
+    as single startTime
+    as single endTime
+    as single timePassed
+    as single frames, FPS
     
     declare sub start()
     declare sub check()
-    declare function getFPS() as integer
+    declare function getFPS() as single
 end type
 
-sub FPSCounter.start()
+sub FPSCounter.Start()
     this.startTime = timer()
 end sub
 
-sub FPSCounter.check()
+sub FPSCounter.Check()
     this.endTime = timer()
     this.timePassed+=this.endTime-this.startTime
     this.frames+=1
@@ -24,6 +27,6 @@ sub FPSCounter.check()
     end if
 end sub
 
-function FPSCounter.getFPS() as integer
+function FPSCounter.GetFPS() as single
     return this.FPS
 end function

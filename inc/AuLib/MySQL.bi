@@ -4,7 +4,7 @@
 #include once "mysql\mysql.bi"
 #define NULL 0
 
-type AuSQL
+type MySQLDatabase
     as string host, user, pass, dbName
     as uinteger port, flag
     
@@ -12,19 +12,19 @@ type AuSQL
     as MYSQL_RES ptr res
     as MYSQL_ROW row
     
-    declare function connect(host as string, user as string, pass as string, dbName as string, port as uinteger = 3306, flag as uinteger = 0) as integer
-    declare function getError() as string
-    declare function getErrorMessage() as string
-    declare function getErrorNo() as uinteger
-    declare function query(stmt as string) as integer
-    declare function getRowCount() as uinteger
-    declare function getFieldCount() as uinteger
-    declare function getRow() as integer
-    declare function getItem(index as uinteger) as string
+    declare function Connect(host as string, user as string, pass as string, dbName as string, port as uinteger = 3306, flag as uinteger = 0) as integer
+    declare function GetError() as string
+    declare function GetErrorMessage() as string
+    declare function GetErrorNo() as uinteger
+    declare function Query(stmt as string) as integer
+    declare function GetRowCount() as uinteger
+    declare function GetFieldCount() as uinteger
+    declare function GetRow() as integer
+    declare function GetItem(index as uinteger) as string
     declare sub close()
 end type
 
-function AuSQL.connect(host as string, user as string, pass as string, dbName as string, port as uinteger = 3306, flag as uinteger = 0) as integer
+function MySQLDatabase.Connect(host as string, user as string, pass as string, dbName as string, port as uinteger = 3306, flag as uinteger = 0) as integer
     this.conn = mysql_init(NULL)
     this.host = host
     this.user = user
@@ -39,19 +39,19 @@ function AuSQL.connect(host as string, user as string, pass as string, dbName as
     end if
 end function
 
-function AuSQL.getError() as string
+function MySQLDatabase.GetError() as string
     return "ERROR " & this.getErrorNo() & ": " & this.getErrorMessage()
 end function
 
-function AuSQL.getErrorMessage() as string
+function MySQLDatabase.GetErrorMessage() as string
     return "'" & mysql_error(this.conn) & "'"
 end function
 
-function AuSQL.getErrorNo() as uinteger
+function MySQLDatabase.GetErrorNo() as uinteger
     return mysql_errNo(this.conn)
 end function
 
-function AuSQL.query(stmt as string) as integer
+function MySQLDatabase.Query(stmt as string) as integer
     dim as integer result = mysql_query(this.conn, stmt)
     if(result = 0) then
         mysql_free_result(this.res)
@@ -60,15 +60,15 @@ function AuSQL.query(stmt as string) as integer
     return result
 end function
 
-function AuSQL.getRowCount() as uinteger
+function MySQLDatabase.GetRowCount() as uinteger
     return mysql_num_rows(this.res)
 end function
 
-function AuSQL.getFieldCount() as uinteger
+function MySQLDatabase.GetFieldCount() as uinteger
     return mysql_num_fields(this.res)
 end function
 
-function AuSQL.getRow() as integer
+function MySQLDatabase.GetRow() as integer
     this.row = mysql_fetch_row(this.res)
     if(row = NULL) then
         return 0
@@ -77,10 +77,10 @@ function AuSQL.getRow() as integer
     end if
 end function
 
-function AuSQL.getItem(index as uinteger) as string
+function MySQLDatabase.GetItem(index as uinteger) as string
     return *this.row[index]
 end function
 
-sub AuSQL.close()
+sub MySQLDatabase.Close()
     mysql_close(this.conn)
 end sub

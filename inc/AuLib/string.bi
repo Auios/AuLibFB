@@ -1,13 +1,14 @@
 'AuStringManip.bi
-'1/22/2017
+'string.bi
+'2018-10-01
 
-#IFNDEF _AUSTRINGMANIP_BI_
-#DEFINE _AUSTRINGMANIP_BI_
+#IFNDEF _AULIB_STRING_BI_
+#DEFINE _AULIB_STRING_BI_
 
 #include once "crt.bi"
 
 nameSpace AuLib
-    function getWord(byval text as string, wordIndex as integer, delimiter as string) as string
+    function getWord(byval text as string, wordIndex as integer, delimiter as string = " ") as string
         dim as zstring ptr word
         dim as integer wordsPassed
         word = strtok(text, delimiter)
@@ -21,7 +22,7 @@ nameSpace AuLib
         return(*word)
     end function
     
-    function getWordCount(byval text as string, delimiter as string) as integer
+    function getWordCount(byval text as string, delimiter as string = " ") as integer
         dim as zstring ptr word
         dim as integer wordsPassed
         word = strtok(text, delimiter)

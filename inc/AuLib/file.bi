@@ -1,28 +1,28 @@
-'AuFile.bi
-'1/23/2017
+'file.bi
+'2018-10-01
 
-#IFNDEF _AUFILE_BI_
-#DEFINE _AUFILE_BI_
+#IFNDEF _AULIB_FILE_BI_
+#DEFINE _AULIB_FILE_BI_
 
 #include once "crt.bi"
 
 nameSpace AuLib
-    type AuFile
+    type File
         as boolean isOpen
         as long endOfFile
         as ubyte mode
         as long fileNumber
         as zstring*255 fileName
         
-        declare function openRead(fileName as string) as boolean
-        declare function openWrite(fileName as string) as boolean
-        declare sub closeFile()
-        declare sub reset()
-        declare function readLine() as string
-        declare sub print(lineStr as string)
+        declare function OpenRead(fileName as string) as boolean
+        declare function OpenWrite(fileName as string) as boolean
+        declare sub Close()
+        declare sub Reset()
+        declare function ReadLine() as string
+        declare sub Print(lineStr as string)
     end type
     
-    function AuFile.openRead(fileName as string) as boolean
+    function File.OpenRead(fileName as string) as boolean
         if(this.isOpen) then return false
         this.fileNumber = freeFile()
         this.fileName = fileName
@@ -31,7 +31,7 @@ nameSpace AuLib
         return this.isOpen
     end function
     
-    function AuFile.openWrite(fileName as string) as boolean
+    function File.OpenWrite(fileName as string) as boolean
         if(this.isOpen) then return false
         this.fileNumber = freeFile()
         this.fileName = fileName
@@ -40,7 +40,7 @@ nameSpace AuLib
         return this.isOpen
     end function
     
-    sub AuFile.closeFile()
+    sub File.Close()
         if(this.isOpen) then
             close #this.fileNumber
             this.isOpen = 0
@@ -49,7 +49,7 @@ nameSpace AuLib
         end if
     end sub
     
-    sub AuFile.reset()
+    sub File.Reset()
         if(this.isOpen) then
             close #this.fileNumber
             if(this.mode = 1) then this.openRead(this.fileName)
@@ -57,7 +57,7 @@ nameSpace AuLib
         end if
     end sub
     
-    function AuFile.readLine() as string
+    function File.ReadLine() as string
         dim as string text
         if(this.isOpen) then
             line input #this.fileNumber, text
@@ -66,7 +66,7 @@ nameSpace AuLib
         return text
     end function
     
-    sub AuFile.print(lineStr as string)
+    sub File.Print(lineStr as string)
         write #this.fileNumber, lineStr
     end sub
 end nameSpace

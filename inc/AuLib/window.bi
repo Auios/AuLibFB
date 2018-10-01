@@ -1,10 +1,10 @@
-'AuWnd.bi
-'1/22/2017
+'Window.bi
+'2018-10-01
 
-#IFNDEF _AUWND_BI_
-#DEFINE _AUWND_BI_
+#IFNDEF _AULIB_WINDOW_BI_
+#DEFINE _AULIB_WINDOW_BI_
 
-#include once "../string/austringmanip.bas"
+#include once "./String.bi"
 #include once "crt.bi"
 #include once "fbgfx.bi"
 
@@ -23,15 +23,15 @@ nameSpace AuLib
         as zstring*64 title
         as any ptr buffer
         
-        declare sub init(wdth as long = 800, hght as long = 600, depth as long = 32, pages as long = 1, flags as long = 0, title as string = "Application")
-        declare sub getSize(byref wdth as long, byref hght as long)
-        declare sub show()
-        declare sub hide()
-        declare sub destroy()
-        declare sub dump(message as string = "")
+        declare sub Init(wdth as long = 800, hght as long = 600, depth as long = 32, pages as long = 1, flags as long = 0, title as string = "Application")
+        declare sub GetSize(byref wdth as long, byref hght as long)
+        declare sub Show()
+        declare sub Hide()
+        declare sub Destroy()
+        declare sub Dump(message as string = "")
     end type
     
-    sub AuWindow.init(wdth as long = 800, hght as long = 600, depth as long = 32, pages as long = 1, flags as long = 0, title as string = "Application")
+    sub AuWindow.Init(wdth as long = 800, hght as long = 600, depth as long = 32, pages as long = 1, flags as long = 0, title as string = "Application")
         this.wdth = wdth
         this.hght = hght
         this.depth = depth
@@ -41,12 +41,12 @@ nameSpace AuLib
         this.isInit = true
     end sub
     
-    sub AuWindow.getSize(byref wdth as long, byref hght as long)
+    sub AuWindow.GetSize(byref wdth as long, byref hght as long)
         wdth = this.wdth
         hght = this.hght
     end sub
     
-    sub AuWindow.show()
+    sub AuWindow.Show()
         dim as integer result
         if(this.isInit) then
             this.visible = true
@@ -59,12 +59,12 @@ nameSpace AuLib
         end if
     end sub
     
-    sub AuWindow.hide()
+    sub AuWindow.Hide()
         this.visible = false
         screen(0)
     end sub
     
-    sub AuWindow.destroy()
+    sub AuWindow.Destroy()
         this.wdth = 0
         this.hght = 0
         this.depth = 0
@@ -76,7 +76,7 @@ nameSpace AuLib
         screen(0)
     end sub
     
-    sub AuWindow.dump(message as string = "")
+    sub AuWindow.Dump(message as string = "")
         printBar("-",10)
         if(message <> "") then printf(!"%s\n", message)
         printf(!"Width---: %d\n", this.wdth)

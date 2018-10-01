@@ -1,8 +1,8 @@
-'AuMisc.bi
-'1/26/2017
+'misc.bi
+'2018-10-01
 
-#IFNDEF _AUMISC_BI_
-#DEFINE _AUMISC_BI_
+#IFNDEF _AULIB_MISC_BAS_
+#DEFINE _AULIB_MISC_BAS_
 
 #define flen(_MyStr) cptr(uinteger ptr,@_MyStr)[1]
 
