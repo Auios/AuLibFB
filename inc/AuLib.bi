@@ -10,6 +10,7 @@
 #include once "aulib/list.bi"
 #include once "aulib/stack.bi"
 #include once "aulib/queue.bi"
+#include once "aulib/misc.bi"
 
 #include once "aulib/FPSCounter.bas"
 
