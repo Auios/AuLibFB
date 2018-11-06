@@ -13,5 +13,6 @@
 #include once "aulib/misc.bi"
 
 #include once "aulib/FPSCounter.bas"
+#include once "aulib/AuTimer.bas"
 
 #endif
