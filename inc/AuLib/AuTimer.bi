@@ -10,7 +10,7 @@ type AuTimer
     declare sub Start()
     declare sub Stop()
     declare sub Reset()
-    declare function StartTime() as single
+    declare function GetStartTime() as single
     declare function GetTime() as single
 end type
 
@@ -34,7 +34,7 @@ sub AuTimer.Reset()
     this.running = false
 end sub
 
-function AuTimer.StartTime() as single
+function AuTimer.GetStartTime() as single
     return this.startTime
 end function
 
