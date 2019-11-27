@@ -52,7 +52,7 @@ nameSpace AuLib
     
     sub _T##List.remove(index as uinteger)
         if(count = 0 OR index > count) then return
-        memmove(@cptr(_T ptr,item)[index], @cptr(_T ptr,item)[index+1], sizeof(_T)*(count-index-1))
+        memmove(@item[index], @item[index+1], sizeof(string)*(count-index-1))
         count-=1
         if(count+(LISTALLOCSIZE\2)) < (allocated-LISTALLOCSIZE) then this.deallocate()
     end sub
